@@ -1422,3 +1422,578 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 49ms (Views: 39.8ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/posts/9" for ::1 at 2023-04-28 11:01:35 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (4.6ms)
+  Rendered posts/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:01:38 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/9" for ::1 at 2023-04-28 11:05:19 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.5ms)
+  Rendered posts/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:05:24 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/9" for ::1 at 2023-04-28 11:29:12 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (2.9ms)
+  Rendered posts/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts/9/comments" for ::1 at 2023-04-28 11:29:43 +1000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8PPnuAeDQ7M+L1M2arHrgGPmCs9pEoOhS00PeA6xnE7jAGwQ6GIvhA90FKSe0UfbqfKp/7BSuTWl0/+MD1HHdQ==", "comment"=>{"name"=>"John Smith", "comment"=>"That is a long time operating. How cool!!"}, "commit"=>"Leave a reply", "post_id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("name", "comment", "created_at", "updated_at", "post_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "John Smith"], ["comment", "That is a long time operating. How cool!!"], ["created_at", "2023-04-28 01:29:43.503801"], ["updated_at", "2023-04-28 01:29:43.503801"], ["post_id", 9]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+Redirected to http://localhost:3000/posts/9
+Completed 302 Found in 19ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/9" for ::1 at 2023-04-28 11:29:43 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.4ms)
+  Rendered comments/_form.html.erb (2.9ms)
+  Rendered posts/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:29:51 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/8" for ::1 at 2023-04-28 11:29:52 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.8ms)
+  Rendered posts/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts/8/comments" for ::1 at 2023-04-28 11:30:20 +1000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGm5upKaD3QBbBnGd8Ep7jm+9WxD0yHKKWPcMWE3Bp/3NF9T+SG8I9VYd034SBRa19zFxgvvHx9D9CQrgr7tnA==", "comment"=>{"name"=>"Ted Munk", "comment"=>"Great performance in the last year"}, "commit"=>"Leave a reply", "post_id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("name", "comment", "created_at", "updated_at", "post_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ted Munk"], ["comment", "Great performance in the last year"], ["created_at", "2023-04-28 01:30:20.471120"], ["updated_at", "2023-04-28 01:30:20.471120"], ["post_id", 8]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/8" for ::1 at 2023-04-28 11:30:20 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.5ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  Rendered posts/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:30:23 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/7" for ::1 at 2023-04-28 11:30:24 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (5.6ms)
+  Rendered posts/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts/7/comments" for ::1 at 2023-04-28 11:31:06 +1000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XnVvBbKBxUwsjz6j7lVbvq72Fa3LQmZU+/Ui8l0SMP460clPBccOOd/7L3r+01AVTKK+gk/0o6boKrjL/H8TGw==", "comment"=>{"name"=>"Ben Mundene ", "comment"=>"Great work with the corporate social responsibility "}, "commit"=>"Leave a reply", "post_id"=>"7"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("name", "comment", "created_at", "updated_at", "post_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben Mundene "], ["comment", "Great work with the corporate social responsibility "], ["created_at", "2023-04-28 01:31:06.305740"], ["updated_at", "2023-04-28 01:31:06.305740"], ["post_id", 7]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/7" for ::1 at 2023-04-28 11:31:06 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.4ms)
+  Rendered comments/_form.html.erb (3.6ms)
+  Rendered posts/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:31:11 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/7" for ::1 at 2023-04-28 11:31:12 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.5ms)
+  Rendered comments/_form.html.erb (2.9ms)
+  Rendered posts/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:31:13 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/6" for ::1 at 2023-04-28 11:31:15 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.3ms)
+  Rendered posts/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts/6/comments" for ::1 at 2023-04-28 11:31:42 +1000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TARFQw23Hjw0iUJfOUcvPPFxCPCMTF79kL603BPOul7kRjhwrHNAig1xmaTAV1LCfZPNV1eBWw2DZea/XiK0rQ==", "comment"=>{"name"=>"Amy Lee", "comment"=>"Can or can't?"}, "commit"=>"Leave a reply", "post_id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("name", "comment", "created_at", "updated_at", "post_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Amy Lee"], ["comment", "Can or can't?"], ["created_at", "2023-04-28 01:31:42.590111"], ["updated_at", "2023-04-28 01:31:42.590111"], ["post_id", 6]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 29ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/6" for ::1 at 2023-04-28 11:31:42 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.4ms)
+  Rendered comments/_form.html.erb (4.1ms)
+  Rendered posts/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:31:44 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 11:39:38 +1000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/joshuaspicer/.rvm/gems/ruby-2.7.8/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 218ms (Views: 187.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/9" for ::1 at 2023-04-28 11:39:40 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (1.0ms)
+  Rendered comments/_form.html.erb (23.5ms)
+  Rendered posts/show.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 69ms (Views: 64.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2023-04-28 14:15:18 +1000
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/joshuaspicer/.rvm/gems/ruby-2.7.8/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (28.9ms)
+  Rendered posts/new.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 222ms (Views: 202.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 14:15:20 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/9" for ::1 at 2023-04-28 14:15:22 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 9]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (1.3ms)
+  Rendered comments/_form.html.erb (5.6ms)
+  Rendered posts/show.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 14:15:31 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2023-04-28 14:15:34 +1000
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.4ms)
+  Rendered posts/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 14:15:40 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2023-04-28 14:42:57 +1000
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2023-04-28 14:43:42 +1000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pgU8uOjsnvJYB8Mmw7llLuo8ix1lkXZvOHZtx1VNbz2YNiaGy+U4i+RDwNBdIn8ZArV/TXMGc9FmB2U0lWi46Q==", "post"=>{"title"=>"Are banks making enough profit ", "content"=>"No"}, "commit"=>"Create Post"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:15
+  [1m[36mPost Create (2.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Are banks making enough profit "], ["content", "No"], ["created_at", "2023-04-28 04:43:42.545216"], ["updated_at", "2023-04-28 04:43:42.545216"]]
+  ↳ app/controllers/posts_controller.rb:15
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:15
+Redirected to http://localhost:3000/posts/10
+Completed 302 Found in 6ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/posts/10" for ::1 at 2023-04-28 14:43:42 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  Rendered posts/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts/10/comments" for ::1 at 2023-04-28 14:43:52 +1000
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eL9pt58iQCJVdec4t0ggtPGKb6wWTkJmbm6U+UK0HyeIXxktcnzu6CC8N9xqyDZYPM8bYOLKMFp+QJ8rUGVzNw==", "comment"=>{"name"=>"John ", "comment"=>"What about the children"}, "commit"=>"Leave a reply", "post_id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("name", "comment", "created_at", "updated_at", "post_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "John "], ["comment", "What about the children"], ["created_at", "2023-04-28 04:43:52.892253"], ["updated_at", "2023-04-28 04:43:52.892253"], ["post_id", 10]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:5
+Redirected to http://localhost:3000/posts/10
+Completed 302 Found in 20ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/10" for ::1 at 2023-04-28 14:43:52 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.5ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  Rendered posts/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/10/comments/6" for ::1 at 2023-04-28 14:43:59 +1000
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9sVJ9PVo9fEY3bCLYgW+j/E//S5t0iz5m7EnT4Vpbm0GJTluGDZbO20UYG+/hahjPHqJ4plWXsWLnyydl7gCfQ==", "post_id"=>"10", "id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:11
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["post_id", 10], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:13
+  [1m[36mComment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/comments_controller.rb:13
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:13
+Redirected to http://localhost:3000/posts/10
+Completed 302 Found in 5ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/10" for ::1 at 2023-04-28 14:43:59 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.1ms)
+  Rendered posts/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 14:44:05 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/8" for ::1 at 2023-04-28 14:44:11 +1000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 8]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of comments/_comment.html.erb [1 times] (0.5ms)
+  Rendered comments/_form.html.erb (3.4ms)
+  Rendered posts/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2023-04-28 14:44:15 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/10" for ::1 at 2023-04-28 16:01:11 +1000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/joshuaspicer/.rvm/gems/ruby-2.7.8/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:23
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:34
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 10]]
+  ↳ app/views/posts/show.html.erb:35
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (38.8ms)
+  Rendered posts/show.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 256ms (Views: 229.4ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/posts/10" for ::1 at 2023-04-28 16:01:13 +1000
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lYcIz46uc5HGi4zZXghFe1b7u7M/zWoqVN+M95xzISVlZ3hVY/DdW7NCXD2DiFOXm77Pf8tJGBZE8YcljqJNNQ==", "id"=>"10"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:43
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:44
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:44
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:44
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts" for ::1 at 2023-04-28 16:01:13 +1000
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for ::1 at 2023-04-28 16:01:39 +1000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/joshuaspicer/.rvm/gems/ruby-2.7.8/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 151ms (Views: 138.9ms | ActiveRecord: 0.6ms)
+
+
